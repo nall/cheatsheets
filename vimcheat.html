@@ -1,0 +1,177 @@
+<html>
+<head>
+  <title>vim cheatsheet</title>
+  <style>
+    body {
+      font-family: Georgia, Serif;
+      margin-left: 2em;
+    }
+    th {
+      font-size: normal;
+      text-align: right;
+    }
+    td {
+      padding-right: .5em;
+      padding-left: .5em;
+      padding-bottom: .5em;
+      vertical-align: top;
+    }
+    td.keymap {
+      text-align: center;
+    }
+    kbd {
+      /* border-bottom: 1px solid #EAEEF2;
+      border-right: 1px solid #EAEEF2; */
+      padding: 1px;
+    }
+    kbd, pre, td.keymap {
+      font-family: monospace;
+      font-weight: bold;
+      font-size: larger;
+      color: green;
+    }
+    .change kbd, kbd.change { color: orange; }
+    .insert kbd, kbd.insert { color: blue;   }
+    .delete kbd, kbd.delete { color: red;    }
+
+    i { color: gray; }
+  </style>
+</head>
+
+<body>
+
+<table>
+
+<tr>
+  <th>edit</th>
+
+  <td>
+    <span class="insert">
+      <kbd>i</kbd>nsert at cursor<br>
+      <kbd>I</kbd>nsert at start<br>
+      <kbd>a</kbd>ppend after cursor<br>
+      <kbd>A</kbd>ppend to line<br>
+    </span>
+  </td>
+
+  <td>
+    <span class="delete">
+      <kbd>x</kbd> kill char<br>
+      <kbd>X</kbd> kill back<br>
+      <kbd>d</kbd>elete/cut text<br>
+      <kbd>d<i>obj</i></kbd> - <kbd>dw</kbd>, <kbd>d$</kbd>, etc.<br>
+      <kbd>dd</kbd> clears whole line<br>
+      <kbd>D</kbd> to end of line
+    </span><br>
+    <span class="change"><kbd>c</kbd>hange - <kbd>c<i>obj</i></kbd>, <kbd>ci<i>obj</i></kbd>, <kbd>cc</kbd>, <kbd>C</kbd></span><br>
+  </td>
+
+  <td>
+    <kbd class="change">r</kbd>eplace one char<br>
+    <kbd class="change">R</kbd>eplace text<br>
+    <span class="change"><kbd>s</kbd>ubstitute char</span><br>
+    <kbd>y</kbd>ank/copy - <kbd>y<i>obj</i></kbd>, <kbd>yy</kbd><br>
+    <kbd>p</kbd>ut (paste)<br>
+    <kbd>u</kbd>ndo, <kbd>ctrl-r</kbd>edo<br>
+    <kbd>v</kbd>isual select<br>
+    <kbd>.</kbd> repeat edit
+  </td>
+</tr>
+
+<tr>
+  <th>move</th>
+
+  <td>
+    <kbd>e</kbd>nd, <kbd>b</kbd>egin <kbd>w</kbd>ord<br>
+    <kbd>$</kbd>,<kbd>0</kbd> end, begin line<br>
+    <kbd>(</kbd>,<kbd>)</kbd> sentence &larr;, &rarr;<br>
+    <kbd>{</kbd>,<kbd>}</kbd> paragraph &larr;, &rarr;<br>
+    <kbd>ctrl-b</kbd>ack, <kbd>ctrl-f</kbd>wd page<br>
+    <kbd>fA</kbd> goes to next "A"<br>
+    <kbd>tA</kbd> before next "A"
+  </td>
+
+  <td class="keymap">
+    <small>gg</small><br>
+    <small>&lt;C-b&gt;</small><br>
+    H<br>
+    k<br>
+    { ( B b h l w W ) }<br>
+    j<br>
+    L<br>
+    <small>&lt;C-f&gt;</small><br>
+    <small>G</small>
+  </td>
+
+  <td>
+    <kbd>/<i>pattern</i></kbd> &rarr;<br>
+    <kbd>?<i>pattern</i></kbd> &larr;<br>
+    <kbd>n</kbd>ext <i>pattern</i><br>
+    <kbd>*</kbd> word under cursor<br>
+    <kbd>%</kbd> matching bracket<br>
+    <kbd>m<i>x</i></kbd> set mark <i>x</i><br>
+    <kbd>``</kbd> go back, <kbd>`<i>x</i></kbd> to mark
+  </td>
+</tr>
+
+<tr>
+  <th>files<br><small>&amp; windows</small></th>
+
+  <td>
+    <kbd>:e <i>file</i></kbd> edit<br>
+    <kbd>:w <i>file</i></kbd> write<br>
+    <kbd>:wq</kbd> write &amp; quit<br>
+    <kbd>:r <i>file</i></kbd> read into buffer<br>
+    <kbd>:r !<i>command</i></kbd> - get output<br>
+    <kbd>:sp <i>file</i></kbd> - in new window<br>
+    <kbd>:q</kbd> - quit buffer/window
+  </td>
+
+  <td colspan=2><kbd>ctrl-w</kbd> then...<br>
+    <kbd>n</kbd>ew<br>
+    <kbd>s</kbd>plit current<br>
+    <kbd>v</kbd>ertical split<br>
+    <kbd>h</kbd>, <kbd>j</kbd>, <kbd>k</kbd>, <kbd>l</kbd> jump &larr; &darr; &uarr; &rarr;<br>
+    <kbd>+</kbd>, <kbd>-</kbd>, <kbd>=</kbd> size current<br>
+    <kbd>f</kbd>ile under cursor in new window<br>
+  </td>
+</tr>
+
+</table>
+
+<p>- - - cut or fold here - - -</p>
+
+<table>
+
+<tr>
+  <th>style</th>
+
+  <td>
+    <kbd>:set expandtab</kbd> - use spaces<br>
+    <kbd>:set shiftwidth=2</kbd><br>
+    <kbd>:set textwidth=70</kbd><br>          
+    <kbd>:set nowrap</kbd>
+  </td>
+
+  <th>tweak</th>
+
+  <td>
+    <kbd class="change">J</kbd>oin<br>
+    <kbd class="change">gq<i>obj</i></kbd> - autoformat<br>
+    <kbd>~</kbd> change case of char<br>
+    <kbd>&gt;&gt;</kbd>,<kbd>&lt;&lt;</kbd> indent, unindent<br>
+    <kbd>=</kbd> autoindent<br>
+    <kbd>:rangesort</kbd><br>
+  </td>
+</tr>
+</table>
+
+<p><kbd><i>n</i>ctrl-a</kbd>, <kbd><i>n</i>ctrl-x</kbd> - inc or dec number by <i>n</i></p>
+
+<p><kbd class="change">:s/pattern/replacement/g</kbd> - on this line (g for multiple)<br>
+<kbd class="change">:%s/pattern/replacement/gc</kbd> - on every line but confirm<br>
+<kbd class="change">:perldo s/foo/bar/g</kbd> - do Perl on every line<br>
+<kbd class="change">:.perldo s/bar/baz/g</kbd> - do Perl on this line</p>
+
+</body>
+</html>
